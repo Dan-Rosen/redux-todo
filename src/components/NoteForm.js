@@ -1,6 +1,7 @@
-import React, { useState, useDispatch } from "react"
+import React, { useState } from "react"
 import styles from "./styles/NoteFormStyles"
 import { addNote } from "../actions/noteActions"
+import { useDispatch } from "react-redux"
 
 function NoteForm() {
     const dispatch = useDispatch()
@@ -18,7 +19,12 @@ function NoteForm() {
     return (
         <div style={styles.NoteForm}>
             <h2>Write a New Note:</h2>
-            <form onSubmit={() => dispatch(addNote(note))}>
+            <form
+                onSubmit={(e) => {
+                    e.preventDefault()
+                    dispatch(addNote(note))
+                }}
+            >
                 <input
                     placeholder="Enter title here..."
                     name="title"

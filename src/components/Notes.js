@@ -1,4 +1,4 @@
-import React, { useSelector } from "react"
+import React, { useSelector } from "react-redux"
 import Note from "./Note"
 
 function Notes() {
